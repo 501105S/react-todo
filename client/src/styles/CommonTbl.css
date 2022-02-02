@@ -1,0 +1,35 @@
+.common-table {
+  width: 100%;
+  margin: 40px auto;
+  text-align: center;
+  border-spacing: 0px;
+  border-style: none;
+  padding: 0px;
+}
+
+.common-tbl-header-col {
+  border-bottom: 1px solid #e8e8e8;
+  padding: 0;
+  font-size: 16px;
+  padding: 10px 5px;
+  font-weight: bold;
+}
+
+.common-tbl-row {
+  height: 50px;
+}
+
+.common-tbl-row:hover {
+  background-color: #eceaea;
+  cursor: pointer;
+}
+
+.common-tbl-col {
+  padding: 10px 5px;
+}
+
+.common-tbl-col > a {
+  display: block;
+  width: 100%;
+  color: #414141;
+}
