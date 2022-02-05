@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
@@ -61,7 +62,9 @@ function PostWrite() {
         </form>
 
         <div className="btn-wrap">
-          <button className="post-write-btn cancel">취소</button>
+          <Link to="/PostList">
+            <button className="post-write-btn write-cancel">취소</button>
+          </Link>
           <button
             className="post-write-btn"
             onClick={() => {

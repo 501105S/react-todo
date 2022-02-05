@@ -15,7 +15,7 @@ import './styles/post/PostView.css'
 
 function App() {
   const sendRequest = async () => {
-    const response = await axios.get('http://localhost:8080')
+    const response = await axios.get('http://localhost:3001/api')
     console.log(response)
     console.log(response.data)
   }

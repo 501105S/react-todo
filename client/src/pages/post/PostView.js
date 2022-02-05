@@ -42,8 +42,8 @@ function PostView() {
           '해당 게시글을 찾을 수 없습니다'
         )}
         <div className="btn-wrap">
+          <button className="post-write-btn edit">수정</button>
           <Link to="/PostList">
-            <button className="post-write-btn edit">수정</button>
             <button className="post-write-btn">목록</button>
           </Link>
         </div>

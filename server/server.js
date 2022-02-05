@@ -1,25 +1,35 @@
-//server.js
+// server/server.js
 const express = require('express');
-const path = require('path');
-const cors = require('cors');
 const app = express();
-const db = require('./config/db')
+const api = require('./Router/index');
+const PORT = process.env.PORT || 3001;
+const db = require('./config/db');
+
+const cors = require('cors');
+app.use(cors());
+
+app.use('/api', api);
 
 app.get('/api/products', (req, res) => {
-  db.query("SELECT * FROM users", (err, data) => {
-      if(!err) res.send({ products : data });
-      else res.send(err);
-  })
+    db.query("SELECT * FROM BRD_LIST", (err, data) => {
+        if(!err) res.send({ products : data });
+        else res.send(err);
+    })
 })
 
-const server = require('http').createServer(app);
+//DB INSERT
+let sql = "INSERT INTO users (name,email,password,roles) VALUES(?,?,?,?)";
+let params = ['test', 'test@naver.com', 'test', 'user'];
 
-app.use(cors()); // cors 미들웨어를 삽입합니다.
+db.query(sql, params, function(err, rows,fields){
+    if(err){
+        console.log(err);
+    }
+    else{
+        console.log(rows.insertId);
+    }
+})
 
-app.get('/', (req,res) => { // 요청패스에 대한 콜백함수를 넣어줍니다.
-  res.send({message:'this is server'});
-});
-
-server.listen(8080, ()=>{
-  console.log('server is running on 8080')
+app.listen(PORT, () => {
+    console.log(`Server On : http://localhost:${PORT}/`);
 })
